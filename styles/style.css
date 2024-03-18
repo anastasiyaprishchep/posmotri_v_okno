@@ -237,8 +237,12 @@ button:active {
 .content__list {
   height: 298px;
   width: 100%;
-  overflow: scroll;
+  overflow-y: auto;
   position: relative;
+}
+
+.content__list::-webkit-scrollbar {
+  display: none;
 }
 
 .preloader-template {
@@ -261,6 +265,7 @@ button:active {
   font-weight: 700;
   color: #fff;
   text-transform: uppercase;
+  padding-top: 6px;
   padding-bottom: 2px;
 }
 
@@ -288,20 +293,17 @@ button:active {
   text-decoration: none;
   color: #fff;
   display: block;
-  padding: 2px;
-  margin: 2px;
+  /*padding: 2px;*/
+  margin: 3px;
 }
 
 .content__card-link:hover {
   text-decoration: underline;
 }
 
-.content__card-link:active {
-  background-color: #545050;
-}
-
 .content__card-link:focus-visible {
-  outline: 1px solid #fff;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 .content__card-link:focus {
