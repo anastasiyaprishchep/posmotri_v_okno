@@ -89,8 +89,11 @@ ol {
 }
 
 .search-form__label {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   width: fit-content;
+  gap: 5px;
+  cursor: pointer;
 }
 
 .search-form__label-text {
@@ -136,14 +139,7 @@ ol {
 
 .search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
-}
-
-input[type="checkbox"] + span .search-form__label-text:has(:focus-visible) {
-  outline: 1px solid #fff;
-}
-
-input[type="checkbox"] + span .search-form__label-text:has(:focus) {
-  outline: none;
+  outline-offset: 1px;
 }
 
 .search-form__checkbox-list {
@@ -154,11 +150,13 @@ input[type="checkbox"] + span .search-form__label-text:has(:focus) {
 }
 
 .search-form__pseudo-checkbox {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 19px;
   height: 19px;
   border: 1px solid #fff;
-  vertical-align: sub;
+ 
 }
 
 input[type="checkbox"]:checked + span {
@@ -174,7 +172,7 @@ input[type="checkbox"]:checked + span {
 .button {
   background-color: transparent;
   color: #fff;
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   cursor: pointer;
   text-align: center;
   font-family: "Fira Sans Condensed", sans-serif;
@@ -206,8 +204,7 @@ button:active {
 }
 
 .more-button {
-  display: inline-block;
-  text-align: center;
+  display: block;
   margin-top: 30px;
   width: 399px;
   height: 34px;
@@ -241,14 +238,6 @@ button:active {
   position: relative;
 }
 
-.content__list::-webkit-scrollbar {
-  display: none;
-}
-
-.preloader-template {
-  position: absolute;
-}
-
 .content__video-card {
   display: flex;
   align-items: flex-start;
@@ -259,14 +248,17 @@ button:active {
 }
 
 .content__video-card-title {
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  overflow: hidden;
   font-family: "Oswald", sans-serif;
   font-size: 30px;
   line-height: 30px;
   font-weight: 700;
   color: #fff;
   text-transform: uppercase;
-  padding-top: 6px;
-  padding-bottom: 2px;
+  padding-top: 2px;
+  max-width: 200px;
 }
 
 .content__video-card-description {
@@ -275,6 +267,7 @@ button:active {
   line-height: 30px;
   font-weight: 400;
   color: #fff;
+  max-width: 200px;
 }
 
 .content__video-card-thumbnail {
@@ -301,15 +294,19 @@ button:active {
   text-decoration: underline;
 }
 
+.content__card-link:focus {
+  outline: none;
+}
+
 .content__card-link:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 2px;
 }
 
-.content__card-link:focus {
-  outline: none;
+.content__card-link_current {
+  background-color: #545050;
 }
 
-.content__card-link_current {
+.content__card-link_current:active {
   background-color: #545050;
 }
